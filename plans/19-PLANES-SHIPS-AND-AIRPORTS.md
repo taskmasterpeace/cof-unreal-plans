@@ -132,7 +132,7 @@ The rule decides; the engine only reports the contact. The rule file gets both l
 **Collision, ram, flying strike, flying grab** (Robert, later 2026-11-13): who gives way is decided by the browser
 game's own strength contest, which already counts momentum, a raised guard and being caught out; the sub-stats decide
 how well (Toughness and Grit for a collision, Guarding and Power for a ram, Striking for a flying strike, Grip and
-Grappling for a flying grab), and holding costs ki or stamina. Full definitions and worked verdicts:
+Grappling for a flying grab; grabbing a person in the air follows Plan 18 section 6b's flight contest), and holding costs ki or stamina. Full definitions and worked verdicts:
 `docs/vehicles/FLYING-CONTACT.md`.
 
 What ramming a plane does, by Law B's first numbers (the damage side, once the contest has decided who gives way):
@@ -328,7 +328,7 @@ Later the same day:
 
 | Call | Ruling | What it changes |
 |---|---|---|
-| A flying grab | **It is a tackle**: "flying grab would be tackling" | Four names: collision, ram, flying strike, tackle (`docs/vehicles/FLYING-CONTACT.md`) |
+| A flying grab | **It is a tackle**: "flying grab would be tackling"; then, the same day, **you can grab a flier and drive them into the ground** | Four names: collision, ram, flying strike, tackle (`docs/vehicles/FLYING-CONTACT.md`). Grabbing a person or creature in the air follows **Plan 18 section 6b's flight contest** (force + flight tier + spent power; drive them down, keep fighting, break loose, be carried off, or be driven down; front or back only, fatal moves from behind). Grabbing a craft keeps the strength contest |
 | Skill against rank | **Skill can beat rank**: "you've practiced it to get better than somebody who was just born with it" | Overrules the sub-stat design's "skill never beats rank". Proposed: the fitting sub-stat adds up to 2 points of contest score at 100 (a master pushes like someone four times stronger) |
 | Aircraft speeds | **"Our jets are slow"** | Proposed real speeds at altitude: fighter cruise 900, dash 2,000 km/h; airliner 900 km/h; helicopters 250-300 km/h; the flight table re-tuned. Meeting a plane becomes far more dangerous (worked in FLYING-CONTACT.md) |
 | Getting shot in flight | **His picks**: flinch by hit direction; aim knocked off separately, Composure steadies it; heavy hits drop you, Toughness decides the drop and Grit the recovery; **and a chance to go full ragdoll**, varied by damage type. "Whatever you can do efficiently. And lean into the stats" | Section 3c's rows 1, 4, 6, plus the ragdoll chance in `docs/vehicles/DAMAGE-LOOKS.md` |

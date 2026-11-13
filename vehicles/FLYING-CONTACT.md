@@ -42,7 +42,7 @@ L13-20); only a **tumbling, falling or knocked** flier counts as caught. Propose
 | Fly into it **without guarding** | **Collision** | Not braced. If you did not see it coming (from behind, unaware, tumbling), caught: half force | **Toughness** decides whether the hit knocks you out of flight or down (its job in the sub-stat design: stagger and knockdown thresholds). **Grit** decides whether you keep going hurt: stay in the air, keep fighting, "refuse to fall" (Robert). Grit is the browser design's "fighting hurt" skill |
 | Fly into it **with guard up** | **Ram** | Braced: double force. Your momentum or your strength, whichever is more | **Guarding** (brace quality and guard drain). **Power** (how much knock-back you deal and how well you break things: its listed job) |
 | Fly in and **punch or kick** on arrival | **Flying strike** | A strike through the damage door, with your arrival speed added (the browser game's momentum melee and dive punch, note 059) | **Striking** (clean hit, timing), **Power** (breaking and knock-back) |
-| Fly in and **grab** | **Tackle** (flying grab; Robert: "flying grab would be tackling") | The contest decides: BOUNCE, you are torn off; STRUGGLE, you hang on and are dragged, or you drag it, ride-with; PINNED, you have it: stop it, steer it, throw it | **Grip** (holding on and breaking holds; its listed signature move is literally "hang from a flier"), **Grappling** (control of the hold), **Lifting** (what you can carry once it is held) |
+| Fly in and **grab** | **Tackle** (flying grab; Robert: "flying grab would be tackling") | **Against a person or creature: the flight contest of Plan 18 section 6b is the rule** (see "Grabbing a flier" below): you can drive them into the ground and start the ground game. **Against a craft** (car, plane, ship), which has no flight tier: the strength contest decides: BOUNCE, you are torn off; STRUGGLE, you hang on and are dragged, or you drag it; PINNED, you have it: stop it, steer it, throw it. **Front or back only**, read from the approach angle; fatal moves need the back | **Grip** (holding on and breaking holds; its listed signature move is literally "hang from a flier"), **Grappling** (control of the hold), **Lifting** (what you can carry once it is held) |
 
 **Skill can beat rank** (Robert, 2026-11-13: "if you have a skill, it can artificially boost your rank... because
 you've practiced it to get better than somebody who was just born with it... it should be able to beat it"). This
@@ -97,7 +97,33 @@ A craft flies into a hero who is hovering. Columns: the hero with guard up, ungu
 Read across a row and the guard matters: a rank-50 hero with guard up holds a speeding jet in a struggle; the same hero
 caught unaware is flattened. Read down and rank matters most, as the design wants.
 
-What each verdict then does in flight:
+## Grabbing a flier: the flight contest (the rule is Plan 18 section 6b)
+
+Robert corrected himself on 2026-11-13: "Why can't you just be flying, run into somebody and grab them and fly into the
+ground? Your ability to fly versus their ability to fly has to be taken into consideration. What if you got to use more
+power? Do you break loose? Do you take them with you?" The grapple session built it (Plan 18 section 6b,
+`FlightContest` in `COFGrappleCore.h`, branch `grapple`). In short, so this document agrees with it:
+
+- **Each side's flight score** = the force it brings in doublings (the grabber's strength or its momentum, the target's
+  strength) + its **flight tier** (flyer +1, levitator 0, clumsy -1, cannot fly -1) + the **extra power or ki it
+  spends** (up to one doubling, a proposal).
+- **What the grabber's lead gives**:
+
+  | Grabber's lead | What happens |
+  |---|---|
+  | 1.5 or more (overpowering, dominating) | **You drive them into the ground** and land on top: the ground game starts with you mounted |
+  | 0.5 to 1.5 (edging) | You hang on; the fight in the air goes on and is contested again |
+  | Even | **They break loose** |
+  | -1.5 to -0.5 (edged) | **They take you with them**: they fly off carrying you |
+  | -1.5 or less (overpowered, dominated) | **They drive you into the ground instead** |
+
+- **Front or back only**, from the approach angle; **fatal moves need the back**, and sneaking works only from behind.
+- Once down, Plan 18's ground game applies; a mounted flier can fly off only if its numbers win.
+
+Plan 18 decides grabs between bodies. This document's strength-contest verdicts below apply to rams, collisions and
+grabbing **craft** (cars, planes, ships), which have no flight tier of their own.
+
+What each verdict then does in flight (rams, collisions and grabbing a craft):
 - **BOUNCE** (the hero holds): the craft breaks where it hit you (its part takes the force through the force gate) and
   deflects; you stagger. A strong braced hero standing in a jet's path is a wall.
 - **STRUGGLE**: you and the craft lock together and ride. If you rammed, you are on its nose being pushed; if you
@@ -159,7 +185,9 @@ Robert asked that the board be updated with these definitions. The words, ready 
   keep going.
 - **Ram**: flying into something with your guard up. Braced, you hit twice as hard. Guarding and Power.
 - **Flying strike**: punching or kicking as you arrive; your speed adds to the blow. Striking and Power.
-- **Tackle** (flying grab): grabbing as you arrive. Strength and speed decide who holds whom; Grip and Grappling decide how well.
-  Holding costs ki or stamina.
+- **Tackle** (flying grab): grabbing as you arrive, from the front or the back. Strength, speed and how well each of you
+  flies decide it: drive them into the ground, keep fighting in the air, they break loose, they carry you off, or they
+  drive you down. Pour in more power to win. Finishing moves only from behind. Grabbing a plane or car: strength and
+  speed decide whether you hang on, stop it or get torn off. Grip and Grappling; holding costs ki or stamina.
 - **Designations** (the three levels): **Operative** (trained human), **Superhuman** (enhanced), **Living Super
   Weapon**, beside Civilian, Specialist and Creature (`src/data/character-record.js` L25-27).
