@@ -1,0 +1,9 @@
+title: Consequences of Failure on Unreal
+description: The plans for moving the game to Unreal 5.9
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+relative_links:
+  enabled: true
+  collections: false
