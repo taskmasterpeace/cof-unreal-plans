@@ -11,6 +11,9 @@ says so. Updated 2026-11-13.
 
 - **[Plan 19: Planes, ships and airports](plans/19-PLANES-SHIPS-AND-AIRPORTS.html)** — what the browser game already
   has, how flying, ramming, airliners, airports, boats and ships get built, the stages, and your rulings.
+- **[Flying into things: collision, ram, strike, grab](vehicles/FLYING-CONTACT.html)** — momentum, guard up or not,
+  grabbing a plane, who gives way, which sub-stats decide how well, and what holding costs. Ends with wording for the
+  board.
 - **[Ramming: the one law, worked](vehicles/RAMMING.html)** — what happens when a hero hits a jet, a helicopter, an
   airliner or a ship, with numbers.
 - **[Water: free plugin or Dynamic Real Water](vehicles/WATER-CHOICE.html)** — what the $99.99 plugin would save and
@@ -29,6 +32,11 @@ says so. Updated 2026-11-13.
 6. **Boats: steal and buy.** Warships live in the war layer as numbers until players are near.
 7. **Epic's free water.** Deep oceans and water pressure are ours to build: space (vacuum) and deep water (crush) are
    already separate dangers in the game, so a space flier can dive only as deep as their pressure protection allows.
+
+8. **Stats and sub-stats are the heart of the game**, with powers, abilities, items and gadgets. Every rule reads them.
+9. **Flying contact has names**: collision (no guard: Toughness and Grit), ram (guard up), flying strike, flying grab
+   (Grip and Grappling; costs ki or stamina).
+10. **Every vehicle shows damage by type** (nine types), in the game's style.
 
 ### The three levels of character
 

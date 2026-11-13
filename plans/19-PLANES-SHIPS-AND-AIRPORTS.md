@@ -129,7 +129,13 @@ The rule decides; the engine only reports the contact. The rule file gets both l
   and you go through it, slowed by what breaking it cost, or **bounces you** with momentum shared by the two masses. No
   cap on your hurt. Either side can die.
 
-What ramming a plane does, by Law B's first numbers:
+**Collision, ram, flying strike, flying grab** (Robert, later 2026-11-13): who gives way is decided by the browser
+game's own strength contest, which already counts momentum, a raised guard and being caught out; the sub-stats decide
+how well (Toughness and Grit for a collision, Guarding and Power for a ram, Striking for a flying strike, Grip and
+Grappling for a flying grab), and holding costs ki or stamina. Full definitions and worked verdicts:
+`docs/vehicles/FLYING-CONTACT.md`.
+
+What ramming a plane does, by Law B's first numbers (the damage side, once the contest has decided who gives way):
 
 | You do this | What happens |
 |---|---|
@@ -151,6 +157,47 @@ aboard by their fall speed (`airliner.js` L392-452).
 names them: wing panels, wing box, engines, tail, fin, nose, skin bays). A broken part detaches as a physics piece;
 fire and smoke run from the broken ends; the wreck on the ground burns and stays, saved with the cell. Debris is not
 saved (Plan 3's rule).
+
+### 3b. Showing damage on every vehicle, by damage type
+
+The game has nine damage types: physical, ballistic, energy, fire, cold, toxic, acid, magic and electric
+(`src/data/damage-types.js` L2), and every hit carries one (the game's choke-point rule). Robert: "every vehicle is
+going to need an efficient way of being able to show the damage from the different types." The plan:
+
+- **Three models per vehicle are already made**: intact, damaged and destroyed, for every aircraft, mech and ground
+  vehicle in the browser game's catalogue (see "Models we already have"). The model swaps at the hull's thresholds.
+- **On top, one shared vehicle material** reads a small damage record per vehicle: for each zone (nose, wings, engines,
+  tail, cabin; or front, sides, rear for cars) and each damage type, one number from 0 to 1. It is passed per vehicle as
+  a handful of numbers (no new textures per vehicle), so a hundred damaged vehicles cost little more than one.
+- **What each type looks like**: physical dents and cracks; ballistic holes and chipped paint; energy scorched,
+  glowing edges; fire soot, blistered paint and flames from the zone; cold frost; toxic stains and a haze; acid etched
+  and running metal; magic a glow in the game's power colour; electric scorch with sparks and arcs.
+- **Hits leave marks** where they land (small projected marks, oldest removed first, a fixed number per vehicle).
+- **Textures in our style**: the models keep the game's faceted, low-detail look; Unreal adds better light and
+  material, not more polygons. The same master material serves cars, planes, mechs and ships.
+- **Saved with the cell** like any other damage (Plan 13); a burnt-out car stays burnt out.
+
+### 3c. Ideas for a flier being shot
+
+Robert asked for ideas from shipped games and conference talks. Mapped onto the game's own three knock-back kinds
+(planted, driven back, off the feet), which in the air become **rocked, knocked off course, knocked out of the sky**.
+Sources are in the shared research notes; "our idea" means no game was confirmed for it.
+
+| # | Idea | Seen in | In Unreal | Sub-stat |
+|---|---|---|---|---|
+| 1 | Small flinch poses layered over the flight pose, picked by where the hit came from | Uncharted (70+ reactions this way, GDC) | An additive layer on the upper body | Toughness: smaller flinch |
+| 2 | A physics layer over the animation, pushed at the bone that was hit | Uncharted 4 (GDC 2017) | Physics Control on spine and arms | |
+| 3 | Big hits loosen the body for a moment, then it pulls back into the pose | Just Cause 2 (GDC) | Lower the control strength, raise it again over 0.3 s | Toughness |
+| 4 | Aim knocked off separately from the body flinch, with a resistance value | Destiny 2 (stability), Titanfall 2 (per weapon) | A small camera kick per damage type | Composure: steadier aim |
+| 5 | A skill that keeps the flinch you see but drops the aim penalty | Helldivers 2 ("Unflinching") | Turns off only the camera kick | A Composure signature move |
+| 6 | **Knocked out of the sky**: a heavy hit drops you into a tumble, with a window to recover | Anthem | The server switches you to falling; press to recover | Toughness decides the drop, Grit the recovery |
+| 7 | Missile lock warning, about 2 s to dodge | Anthem | A screen warning and the air dodge | Danger Sense: earlier warning |
+| 8 | **Knocked off course** along the hit | our idea | The server adds speed along the hit | Toughness |
+| 9 | Spin from hits off the centre line, which flight fights off | our idea | Roll and yaw added, damped by flight control | |
+| 10 | A smoke or spark trail while badly hurt | Ace Combat | A Niagara ribbon below a health line | |
+| 11 | A look per damage type: sparks for bullets, scorch for beams, a shock ring for missiles, frost for cold | common practice | One effect per damage type | |
+| 12 | Camera shake and controller rumble by hit size | Titanfall 2 | Camera shake asset and force feedback | |
+| 13 | The browser game's own: a flight crash over 60% severity tumbles you out of flight (`data/flight-model.js` L46) and the stun-fall Robert asked for | COF | Kept as the base rule | Grit, Toughness |
 
 ### 4. Airliners as traffic, and the airport
 

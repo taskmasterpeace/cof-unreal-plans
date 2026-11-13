@@ -4,6 +4,11 @@ Written 2026-11-13 for Plan 19; corrected the same day after the critic's read. 
 literally fly and ram a plane if you wanted to. You might take damage, you might get knocked back, you might destroy
 both of y'all."
 
+**Update, later 2026-11-13: read `FLYING-CONTACT.md` first.** After Robert asked for momentum, guarding and grabs, the
+better base turned out to be the browser game's own strength contest (`data/contact.js`), which already weighs momentum,
+bracing and being caught out. It decides **who gives way** (bounce, struggle, pinned). The damage side below (what
+breaks, who is hurt, no caps) still applies once the verdict is in.
+
 The table below is printed by `ram-cases.mjs` in this folder (`node docs/vehicles/ram-cases.mjs` from the repo root).
 **Law A's columns come from the browser game's own code, called directly** (the ram function and the hull's force gate);
 Law B's are the proposal. Nothing here is built in Unreal. 1 game unit (u) = 19 cm; 194.5 u/s is the slice's boost III
