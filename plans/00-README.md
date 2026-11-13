@@ -23,6 +23,7 @@ Unreal running.
 | [Research note 1](R1-ENGINE-FACTS.md) | Eleven engine facts read from the 5.9 source that settle plan choices |
 | [17. How we build it, and what to prompt](17-HOW-WE-BUILD.md) | The working loop, what we take from the "built it in a day" video and what we do differently, and short prompts for Robert |
 | [16. The server and the war game](16-SERVER-AND-WAR-GAME.md) | Zomboid-style solo, friends and community servers on two layers; the browser game's war layer ported; 198 countries; time passes; seasons later |
+| [20. Where attacks come out of the body](20-EMIT-POINTS.md) | Every emit point the browser game uses (hands, chest, eyes; weapon, ground, sky by type), what its power names promise but do not do, and twelve named emit points for our hero; also the beam-pose fix (J190-J196) |
 | [15. Guns, held right](15-GUNS.md) | Six weapon classes each get their own hold; the support hand is pulled onto every gun; dive-and-shoot; people visible in cars |
 | [Note 3](R3-ROBERT-DIRECTION-2026-11-12.md) | Robert's direction from 2026-11-12: purchases, three knock-backs, flight style names, the vision |
 | [Research note 4](R4-WHAT-IS-POSSIBLE.md) | What is proven and what is new; destruction options; VR; water, boats, aircraft |

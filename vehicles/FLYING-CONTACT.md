@@ -42,13 +42,41 @@ L13-20); only a **tumbling, falling or knocked** flier counts as caught. Propose
 | Fly into it **without guarding** | **Collision** | Not braced. If you did not see it coming (from behind, unaware, tumbling), caught: half force | **Toughness** decides whether the hit knocks you out of flight or down (its job in the sub-stat design: stagger and knockdown thresholds). **Grit** decides whether you keep going hurt: stay in the air, keep fighting, "refuse to fall" (Robert). Grit is the browser design's "fighting hurt" skill |
 | Fly into it **with guard up** | **Ram** | Braced: double force. Your momentum or your strength, whichever is more | **Guarding** (brace quality and guard drain). **Power** (how much knock-back you deal and how well you break things: its listed job) |
 | Fly in and **punch or kick** on arrival | **Flying strike** | A strike through the damage door, with your arrival speed added (the browser game's momentum melee and dive punch, note 059) | **Striking** (clean hit, timing), **Power** (breaking and knock-back) |
-| Fly in and **grab** | **Flying grab** | The contest decides: BOUNCE, you are torn off; STRUGGLE, you hang on and are dragged, or you drag it, ride-with; PINNED, you have it: stop it, steer it, throw it | **Grip** (holding on and breaking holds; its listed signature move is literally "hang from a flier"), **Grappling** (control of the hold), **Lifting** (what you can carry once it is held) |
+| Fly in and **grab** | **Tackle** (flying grab; Robert: "flying grab would be tackling") | The contest decides: BOUNCE, you are torn off; STRUGGLE, you hang on and are dragged, or you drag it, ride-with; PINNED, you have it: stop it, steer it, throw it | **Grip** (holding on and breaking holds; its listed signature move is literally "hang from a flier"), **Grappling** (control of the hold), **Lifting** (what you can carry once it is held) |
 
-The sub-stat design's own rule holds throughout: **skill never beats rank** (`docs/design/SUBSTATS-AND-MAGIC-v0.1.md`
-L22, L95-102). A sub-stat moves an outcome by at most about 15%, so it never carries anyone across a rank: Grip 100 does
-not let an ordinary person hold a jet. It makes a close contest go your way.
+**Skill can beat rank** (Robert, 2026-11-13: "if you have a skill, it can artificially boost your rank... because
+you've practiced it to get better than somebody who was just born with it... it should be able to beat it"). This
+overrules the sub-stat design's "skill never beats rank" (`docs/design/SUBSTATS-AND-MAGIC-v0.1.md` L22, L95-102), which
+capped a sub-stat at about 15%. Proposed (slice choice, to tune): in the contest, the sub-stat that fits the move adds
+up to **2 points of score at 100** (one point is a doubling of force, so a master pushes like someone four times
+stronger), scaled evenly from 0. That is enough to turn a lost struggle into a hold against a stronger, untrained body,
+not enough to make an ordinary person stop a jet. The sub-stat design document needs the same change; that is for whoever
+owns the sub-stats.
 
-## What the law gives, worked (the game's own contest code, run 2026-11-13)
+## Real speeds change everything
+
+Robert: "I think right now our jets are slow." They are: the browser game's fighter flies 300 u/s (205 km/h) and 485 on
+afterburner (332 km/h); a real fighter cruises near 900 km/h and dashes past 2,000. Proposed: real speeds at altitude
+(fighter cruise 900, dash 2,000 km/h; airliner cruise 900 km/h at 10.7 km, the game's own schedule figure; helicopters
+250-300 km/h), with the flight table re-tuned to match. Momentum grows with speed, so planes become far more dangerous
+to meet (the game's contest, guard up; "master" is the skill bonus proposed above):
+
+| Craft | Hero | Guard up | Guard up, master | Unguarded |
+|---|---|---|---|---|
+| Fighter jet, game speed 205 km/h | rank 50 | STRUGGLE | STRUGGLE | PINNED |
+| | rank 60 | STRUGGLE | BOUNCE | STRUGGLE |
+| Fighter jet, real cruise 900 km/h | rank 50 | PINNED | PINNED | PINNED |
+| | rank 60 | STRUGGLE | STRUGGLE | PINNED |
+| | rank 70 | STRUGGLE | BOUNCE | STRUGGLE |
+| Fighter jet, real dash 2,000 km/h | rank 60 | PINNED | STRUGGLE | PINNED |
+| | rank 70 | STRUGGLE | BOUNCE | STRUGGLE |
+| Airliner 250 t, real cruise 900 km/h | rank 70 | PINNED | PINNED | PINNED |
+| | rank 80 | BOUNCE | BOUNCE | BOUNCE |
+
+"An ordinary person holding a jet" in the earlier text meant someone with ordinary strength (rank 25 on the game's
+ladder): they are flattened in every case, and stay flattened with any skill.
+
+## What the law gives, worked (the game's own contest code, run 2026-11-13, game speeds)
 
 A craft flies into a hero who is hovering. Columns: the hero with guard up, unguarded, and caught out.
 
@@ -131,7 +159,7 @@ Robert asked that the board be updated with these definitions. The words, ready 
   keep going.
 - **Ram**: flying into something with your guard up. Braced, you hit twice as hard. Guarding and Power.
 - **Flying strike**: punching or kicking as you arrive; your speed adds to the blow. Striking and Power.
-- **Flying grab**: grabbing as you arrive. Strength and speed decide who holds whom; Grip and Grappling decide how well.
+- **Tackle** (flying grab): grabbing as you arrive. Strength and speed decide who holds whom; Grip and Grappling decide how well.
   Holding costs ki or stamina.
 - **Designations** (the three levels): **Operative** (trained human), **Superhuman** (enhanced), **Living Super
   Weapon**, beside Civilian, Specialist and Creature (`src/data/character-record.js` L25-27).

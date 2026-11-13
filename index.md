@@ -14,6 +14,8 @@ says so. Updated 2026-11-13.
 - **[Flying into things: collision, ram, strike, grab](vehicles/FLYING-CONTACT.html)** — momentum, guard up or not,
   grabbing a plane, who gives way, which sub-stats decide how well, and what holding costs. Ends with wording for the
   board.
+- **[What each damage type leaves behind](vehicles/DAMAGE-LOOKS.html)** — nine damage types in three levels, what each
+  does to wood, glass, steel, concrete and snow, how bodies react (flinch, drop, ragdoll), and how it stays cheap.
 - **[Ramming: the one law, worked](vehicles/RAMMING.html)** — what happens when a hero hits a jet, a helicopter, an
   airliner or a ship, with numbers.
 - **[Water: free plugin or Dynamic Real Water](vehicles/WATER-CHOICE.html)** — what the $99.99 plugin would save and
@@ -34,8 +36,12 @@ says so. Updated 2026-11-13.
    already separate dangers in the game, so a space flier can dive only as deep as their pressure protection allows.
 
 8. **Stats and sub-stats are the heart of the game**, with powers, abilities, items and gadgets. Every rule reads them.
-9. **Flying contact has names**: collision (no guard: Toughness and Grit), ram (guard up), flying strike, flying grab
-   (Grip and Grappling; costs ki or stamina).
+9. **Flying contact has names**: collision (no guard: Toughness and Grit), ram (guard up), flying strike, and tackle
+   (the flying grab: Grip and Grappling; costs ki or stamina).
+11. **Skill can beat rank**: practice can win against someone born stronger.
+12. **Jets are too slow**: real speeds proposed (900 km/h cruise, 2,000 dash).
+13. **Getting shot in flight**: flinch by direction, aim knocked off (Composure steadies it), heavy hits drop you
+    (Toughness to drop, Grit to recover), and a chance to ragdoll that varies by damage type.
 10. **Every vehicle shows damage by type** (nine types), in the game's style.
 
 ### The three levels of character

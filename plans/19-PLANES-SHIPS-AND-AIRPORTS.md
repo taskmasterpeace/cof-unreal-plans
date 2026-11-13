@@ -169,6 +169,7 @@ going to need an efficient way of being able to show the damage from the differe
 - **On top, one shared vehicle material** reads a small damage record per vehicle: for each zone (nose, wings, engines,
   tail, cabin; or front, sides, rear for cars) and each damage type, one number from 0 to 1. It is passed per vehicle as
   a handful of numbers (no new textures per vehicle), so a hundred damaged vehicles cost little more than one.
+- **Full spec, with three levels per type, what each does to each material, and how bodies react:** `docs/vehicles/DAMAGE-LOOKS.md`.
 - **What each type looks like**: physical dents and cracks; ballistic holes and chipped paint; energy scorched,
   glowing edges; fire soot, blistered paint and flames from the zone; cold frost; toxic stains and a haze; acid etched
   and running metal; magic a glow in the game's power colour; electric scorch with sparks and arcs.
@@ -323,7 +324,19 @@ His words are quoted; each ruling replaces the default this plan first took.
 | Deep oceans and water pressure | **Needed.** "A character that can fly in space should be able to fly underwater... that got to be considered" against the sub-stats | The browser game already separates the two: space is the **vacuum** hazard, deep water the **crush** hazard (`data/environments.js` L16-34, L211-237). An energy body answers vacuum fully and crush not at all; a metal body answers some crush (L218-224). Divers have crush depths by gear: 32 m breath-hold, 66 m tank, 260 m rebreather (`data/scuba-gear.js` L34-69). So a flier who can survive space can fly underwater only as deep as their crush answer allows; past it the water crushes them, rising with depth (`engine/world-cell/dive.js` L11). Flying underwater uses water drag on flight |
 | Aircraft designs | Use the game's models; change them where needed | See "Models we already have" below |
 
-Still open: aircraft names (default made-up names, real kinds).
+Later the same day:
+
+| Call | Ruling | What it changes |
+|---|---|---|
+| A flying grab | **It is a tackle**: "flying grab would be tackling" | Four names: collision, ram, flying strike, tackle (`docs/vehicles/FLYING-CONTACT.md`) |
+| Skill against rank | **Skill can beat rank**: "you've practiced it to get better than somebody who was just born with it" | Overrules the sub-stat design's "skill never beats rank". Proposed: the fitting sub-stat adds up to 2 points of contest score at 100 (a master pushes like someone four times stronger) |
+| Aircraft speeds | **"Our jets are slow"** | Proposed real speeds at altitude: fighter cruise 900, dash 2,000 km/h; airliner 900 km/h; helicopters 250-300 km/h; the flight table re-tuned. Meeting a plane becomes far more dangerous (worked in FLYING-CONTACT.md) |
+| Getting shot in flight | **His picks**: flinch by hit direction; aim knocked off separately, Composure steadies it; heavy hits drop you, Toughness decides the drop and Grit the recovery; **and a chance to go full ragdoll**, varied by damage type. "Whatever you can do efficiently. And lean into the stats" | Section 3c's rows 1, 4, 6, plus the ragdoll chance in `docs/vehicles/DAMAGE-LOOKS.md` |
+| How damage looks | **Each type looks its own way, in levels, and reacts to our materials**: energy in the power's colours, fire with visible heat shimmer, cold frost and ice (temperature matters), toxic as poison and gas, acid and electric in levels, ballistic holes, physical from fists to bats. "This is where Unreal shows what it could do", optimised | `docs/vehicles/DAMAGE-LOOKS.md` |
+| Scale | **Bigger planes; living super weapons against anything**, dinosaurs improved, a huge world in our style | Same looks and damage zones for every size; Unreal's gain goes into scale, light and material, not smoother shapes |
+
+Still open: aircraft names (default made-up names, real kinds); airborne counting as caught (default: controlled flight
+counts as standing).
 
 ## Models we already have
 
